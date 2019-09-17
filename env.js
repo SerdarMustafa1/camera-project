@@ -1,19 +1,12 @@
-const variables = {
-  development: {
-    HEREID: "OXcK9OBqocw4MCzTUwIo",
-    HERECODE: "j2py9TI4EsA_Bn3fhA9LMA"
-  },
-  production: {
-    HEREID: "OXcK9OBqocw4MCzTUwIo",
-    HERECODE: "j2py9TI4EsA_Bn3fhA9LMA"
-  }
+const vars = {
+  HEREID: "OXcK9OBqocw4MCzTUwIo",
+  HERECODE: "j2py9TI4EsA_Bn3fhA9LMA"
 };
 
-const getEnvVariables = () => {
-  if (__DEV__) {
-    return variables.development; // return this if in development mode
-  }
-  return variables.production; // otherwise, return this
-};
+export default vars;
 
-export default getEnvVariables; // export a reference to the function
+// https://reverse.geocoder.api.here.com/6.2/reversegeocode.json
+//?app_id=OXcK9OBqocw4MCzTUwIo
+//   &app_code=j2py9TI4EsA_Bn3fhA9LMA
+//   &mode=retrieveLandmarks
+//   &prox=37.7442,-119.5931,1000
