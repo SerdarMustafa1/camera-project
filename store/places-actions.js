@@ -9,7 +9,7 @@ export const SET_PLACES = "SET_PLACES";
 export const addPlace = (title, image, location) => {
   return async dispatch => {
     const response = await fetch(
-      `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?app_id=${ENV.HEREID}&app_code=${ENV.HERECODE}&mode=retrieveAddresses&prox=${location.lat},${location.lng}`
+      `https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?app_id=${ENV.HEREID}&app_code=${ENV.HERECODE}&mode=retrieveAddresses&prox=37.3752,-122.0326,250`
     );
 
     if (!response.ok) {
@@ -21,7 +21,7 @@ export const addPlace = (title, image, location) => {
       throw new Error("Something went wrong!");
     }
 
-    const address = resData.View.Result[0].Location.Address;
+    const address = resData.response.view[0].result.location.address.label;
 
     const fileName = image.split("/").pop();
     const newPath = FileSystem.documentDirectory + fileName;
